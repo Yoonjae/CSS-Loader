@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Loader</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        .loader{
+            position: absolute;
+            top:50%;
+            left: 40%;
+            margin-left:10%;
+            /*background-color: antiquewhite;*/
+            transform: translate3d(-50%,-50%,0);
+        }
+        .dot{
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            background-color: aqua;
+            border-radius: 100%;
+            animation: myAnimation 1s infinite;
+        }
+        .dot:nth-child(0){
+            background-color: aqua;
+        }
+        .dot:nth-child(1){
+            background-color: rebeccapurple;
+        }
+        .dot:nth-child(2){
+            background-color: red;
+        }
+        .dot:nth-child(3){
+            background-color: mediumspringgreen;
+        }
+        .dot:nth-child(4){
+            background-color: teal;
+        }
+
+        @keyframes myAnimation{
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                opacity: .3;
+                transform: scale(2);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.dot').each(function (index) {
+                var time = .1*index;
+                $(this).css('animation-delay',time+'s');
+            });
+        });
+    </script>
+</head>
+<body>
+  <div class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+  </div>
+
+</body>
+</html>
